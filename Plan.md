@@ -1,0 +1,21 @@
+# ♾️ DevOps & Cloud Roadmap
+
+- [x] 1. Linux
+- [ ] 2. Networking Basics
+- [x] 3. Git + GitHub
+- [x] 4. Bash/Shell Scripting
+- [x] 5. AWS Fundamentals
+- [x] 6. Docker
+- [x] 7. CI/CD
+- [x] 8. Jenkins / GitHub Actions
+- [ ] 9. AWS CodePipeline + CodeBuild + CodeDeploy
+- [x] 10. Infrastructure as Code
+  - [x] Terraform
+- [ ] 11. Kubernetes
+- [ ] 12. Helm
+- [ ] 13. AWS ECS / EKS
+- [ ] 14. Monitoring & Logging
+  - [ ] Prometheus + Grafana
+- [x] 15. Ansible
+- [ ] 16. Security / DevSecOps
+- [ ] 17. Advanced Cloud & DevOps
