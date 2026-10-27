@@ -82,13 +82,6 @@ You should see the installed client version.
 
 The official KIND project provides prebuilt binaries. The following commands install the Linux AMD64 binary; if your machine uses ARM64, use the corresponding ARM64 download instead.&#x20;
 
-[image](https://www.google.com/s2/favicons?domain=https://github.com\&sz=32)
-
-GitHub
-
-+1
-
-
 
 Check your CPU architecture:
 
