@@ -8,21 +8,6 @@ KIND stands for Kubernetes IN Docker. It is a tool used to run local Kubernetes 
 
 Instead of creating multiple virtual machines, KIND runs the Kubernetes control plane and worker nodes inside containers on your local computer.
 
-Your Local Machine
-
-Linux / Windows / macOS
-
-Docker Engine
-
-Runs containers that act as Kubernetes nodes
-
-Control Plane
-
-API server, scheduler, controllers, etcd
-
-Worker Node(s)
-
-Application Pods
 
 KIND creates Kubernetes nodes as Docker containers.
 
@@ -150,11 +135,6 @@ What happens?
 
 The initial creation can take a few minutes, depending on your internet connection and machine resources.&#x20;
 
-[image](https://www.google.com/s2/favicons?domain=https://github.com\&sz=32)
-
-GitHub
-
-+1
 
 
 
