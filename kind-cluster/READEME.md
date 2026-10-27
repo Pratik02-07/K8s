@@ -109,16 +109,20 @@ If the command displays a KIND version, the installation worked.
 
 Official reference: [KIND documentation](https://kind.sigs.k8s.io/?utm_source=chatgpt.com).
 
-## 6. Create your first KIND cluster
+## 6. Create your first multi-node KIND cluster
 
 Now let's create a local Kubernetes cluster.
 
 Step 1 — Create the cluster
 
 ```
-kind create cluster --name dev-cluster
+kind create cluster --config ./kind-cluster/kind-config.yml
 ```
+Or, if you are already inside kind-cluster(folder):
 
+```
+kind create cluster --config ./kind-config.yml
+```
 What happens?
 
 - KIND downloads the required node image if it is not already available.
@@ -164,7 +168,7 @@ kubectl get nodes
 kubectl get pods -A
 ```
 
-You should see a control-plane node, normally named `dev-cluster-control-plane`, in the `Ready` state once initialization completes.
+You should see one control-plane node and two worker nodes in the `Ready` state once initialization completes.
 
 At this point, you have a working local Kubernetes cluster.
 
@@ -215,6 +219,7 @@ Important: This creates a separate cluster. It does not convert your existing `d
 | Docker daemon connection error | Run `sudo systemctl status docker`                       |
 | `kind: command not found`      | Check `PATH` and `/usr/local/bin/kind`                   |
 | `kubectl: command not found`   | Install kubectl                                          |
+| Control plane times out during `kubeadm init` | Check `docker info` for cgroup v1; use a cgroup v2 Docker runtime |
 | Node remains `NotReady`        | Check `kubectl describe node NODE_NAME` and cluster logs |
 | Insufficient memory or disk    | Check host resources and free disk space                 |
 
@@ -229,9 +234,32 @@ kubectl get events -A
 kind export logs ./kind-logs --name dev-cluster
 ```
 
-## 9. Delete the cluster when finished
+If cluster creation fails with `unable to create ClusterRoleBinding: context
+deadline exceeded` and KIND reports that cgroup v1 is deprecated, the
+control-plane API server did not become reachable. This is a Docker/WSL
+runtime issue, not a port mapping or node-count issue. Configure Docker to
+use cgroup v2, restart Docker, and confirm the change:
 
-To delete only the single-node practice cluster:
+```
+docker info --format 'CgroupVersion={{.CgroupVersion}}'
+```
+
+The command must print `CgroupVersion=2`. Then remove any failed cluster and
+retry:
+
+```
+kind delete cluster --name dev-cluster
+kind create cluster --config ./kind-cluster/kind-config.yml
+```
+
+If you are using Docker Desktop with the WSL 2 backend, update Docker Desktop
+and WSL first, then restart both Docker Desktop and the WSL distribution. If
+you run Docker Engine directly inside Ubuntu, enable systemd and cgroup v2 in
+that distribution before restarting Docker.
+
+## 9. Delete the clusters when finished
+
+To delete the cluster created from `kind-config.yml`:
 
 ```
 kind delete cluster --name dev-cluster
