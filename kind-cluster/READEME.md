@@ -137,7 +137,9 @@ The initial creation can take a few minutes, depending on your internet connecti
 
 Step 2 — List KIND clusters
 
-```
+```docker info --format 'CgroupVersion={{.CgroupVersion}} ServerVersion={{.ServerVersion}}'
+kind version
+docker ps
 kind get clusters
 ```
 
