@@ -137,7 +137,8 @@ The initial creation can take a few minutes, depending on your internet connecti
 
 Step 2 — List KIND clusters
 
-```docker info --format 'CgroupVersion={{.CgroupVersion}} ServerVersion={{.ServerVersion}}'
+```
+docker info --format 'CgroupVersion={{.CgroupVersion}} ServerVersion={{.ServerVersion}}'
 kind version
 docker ps
 kind get clusters
@@ -279,23 +280,21 @@ Deleting a KIND cluster removes its node containers and the Kubernetes resources
 
 KIND practice progress
 
-0 of 8 completed
+- [x] Check Docker is installed and running
 
-Check Docker is installed and running
+- [x] Install and verify kubectl
 
-Install and verify kubectl
+- [x] Install and verify KIND
 
-Install and verify KIND
+- [x] Create the dev-cluster cluster
 
-Create the dev-cluster cluster
+- [x] Verify nodes and Pods using kubectl
 
-Verify nodes and Pods using kubectl
+- [x] Create the dev-multi cluster using YAML
 
-Create the dev-multi cluster using YAML
+- [x] Verify one control-plane and two worker nodes
 
-Verify one control-plane and two worker nodes
-
-Delete the practice clusters
+- [x] Delete the practice clusters
 
 Interview revision: KIND runs Kubernetes nodes as containers. Docker provides the container runtime for those nodes, KIND bootstraps the cluster, and `kubectl` manages it through the Kubernetes API.
 
