@@ -6,8 +6,8 @@ nodes:
   - role: control-plane
     image: kindest/node:v1.34.11
     extraPortMappings:
-      - containerPort: 30080 # Traffic on your host machine's port 8080 will route to container port 30080 (commonly used for NodePort services).
-        hostPort: 8080
+      - containerPort: 80 # Traffic on your host machine's port 8080 will route to container port 30080 (commonly used for NodePort services).
+        hostPort: 80
         protocol: TCP
       - containerPort: 443 # Traffic on your host machine's port 443 will route to container port 443
         hostPort: 443
