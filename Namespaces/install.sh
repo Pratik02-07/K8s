@@ -20,7 +20,19 @@ else
     kubectl create namespace dev
 fi
 
-echo "📄 Step 6: Applying namespace using a YAML definition..."
+echo "📄 Step 6: Overwriting/Applying namespace using a YAML definition..."
+# This ensures namespace.yaml is always created in the script's actual directory
+SCRIPT_DIR=$(dirname "$0")
+
+cat <<EOF > "$SCRIPT_DIR/namespace.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+EOF
+
+kubectl apply -f "$SCRIPT_DIR/namespace.yaml"
+
 
 kubectl apply -f namespace.yaml
 
