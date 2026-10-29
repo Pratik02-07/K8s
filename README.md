@@ -4,7 +4,7 @@
 - [x] Monolithic vs Microservices
 - [x] Kubernetes Architecture
 - [x] Setup On Local / AWS EC2
-- [ ] Kubectl
+- [x] Kubectl
 - [ ] Pods
 - [ ] Namespaces
 - [ ] Labels
