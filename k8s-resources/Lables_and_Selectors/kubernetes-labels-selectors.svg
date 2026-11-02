@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+<defs>
+  <style>
+    .title{font:700 34px Arial;fill:#fff}.h{font:700 25px Arial;fill:#10233f}
+    .sub{font:17px Arial;fill:#475569}.label{font:700 18px Arial;fill:#123e78}
+    .txt{font:17px Arial;fill:#243247}.small{font:15px Arial;fill:#475569}
+    .arrow{stroke:#475569;stroke-width:3;fill:none;marker-end:url(#arr)}
+  </style>
+  <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+</defs>
+<rect width="1400" height="820" fill="#f8fafc"/>
+<rect x="25" y="20" width="1350" height="72" rx="16" fill="#123e78"/>
+<text x="700" y="66" text-anchor="middle" class="title">Kubernetes Labels &amp; Selectors</text>
+<text x="700" y="130" text-anchor="middle" class="sub">Labels describe and identify objects • Selectors find objects by matching labels</text>
+
+<!-- Pod cards -->
+<rect x="40" y="175" width="600" height="420" rx="18" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="340" y="218" text-anchor="middle" class="h">Kubernetes Pods with Labels</text>
+<g>
+ <rect x="75" y="250" width="530" height="85" rx="12" fill="#fff" stroke="#60a5fa" stroke-width="2"/>
+ <text x="100" y="282" class="label">frontend-pod</text>
+ <text x="100" y="313" class="txt">app=ecommerce</text><text x="330" y="313" class="txt">tier=frontend</text><text x="490" y="313" class="txt">env=dev</text>
+ <rect x="75" y="355" width="530" height="85" rx="12" fill="#fff" stroke="#60a5fa" stroke-width="2"/>
+ <text x="100" y="387" class="label">backend-pod-1</text>
+ <text x="100" y="418" class="txt">app=ecommerce</text><text x="330" y="418" class="txt">tier=backend</text><text x="490" y="418" class="txt">env=dev</text>
+ <rect x="75" y="460" width="530" height="85" rx="12" fill="#fff" stroke="#60a5fa" stroke-width="2"/>
+ <text x="100" y="492" class="label">backend-pod-2</text>
+ <text x="100" y="523" class="txt">app=ecommerce</text><text x="330" y="523" class="txt">tier=backend</text><text x="490" y="523" class="txt">env=prod</text>
+</g>
+
+<!-- Selector -->
+<rect x="755" y="230" width="590" height="260" rx="18" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+<text x="1050" y="275" text-anchor="middle" class="h">Selector</text>
+<rect x="835" y="300" width="430" height="75" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="1050" y="330" text-anchor="middle" class="label">tier = backend</text>
+<text x="1050" y="356" text-anchor="middle" class="small">Matches Pods carrying this key-value label</text>
+<path class="arrow" d="M835 385 C760 430 700 415 605 400"/>
+<path class="arrow" d="M835 410 C760 500 700 510 605 505"/>
+<text x="1050" y="445" text-anchor="middle" class="txt">Selected results:</text>
+<text x="1050" y="473" text-anchor="middle" class="label">backend-pod-1 • backend-pod-2</text>
+
+<!-- Service example -->
+<rect x="755" y="535" width="590" height="220" rx="18" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
+<text x="1050" y="578" text-anchor="middle" class="h">Service uses a selector</text>
+<rect x="875" y="600" width="350" height="62" rx="12" fill="#ffedd5" stroke="#f59e0b" stroke-width="2"/>
+<text x="1050" y="638" text-anchor="middle" class="label">backend-service</text>
+<text x="1050" y="700" text-anchor="middle" class="txt">selector: app=ecommerce, tier=backend</text>
+<text x="1050" y="730" text-anchor="middle" class="small">Routes traffic to matching eligible Pod endpoints</text>
+
+<!-- footer -->
+<rect x="40" y="630" width="600" height="125" rx="16" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+<text x="70" y="670" class="h">Remember</text>
+<text x="70" y="706" class="txt">Labels = metadata used to identify and group resources.</text>
+<text x="70" y="737" class="txt">Selectors = queries that match resources by their labels.</text>
+</svg>
